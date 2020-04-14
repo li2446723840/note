@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<style>
+
+</style>
+<body>
+    <div>
+        <input type="checkbox" id="all">
+        <ul id="qx">
+            <li><input type="checkbox" /></li>
+            <li><input type="checkbox" /></li>
+            <li><input type="checkbox" /></li>
+            <li><input type="checkbox" /></li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+var all = document.getElementById('all');
+var qx = document.getElementById('qx').getElementsByTagName('input');
+// 点击全选的复选框，获取当前的状态，然后设置下面所有复选框的状态
+all.onclick = function () {
+    for (var i = 0; i < qx.length; i++) {
+        // 下面复选框的状态赋给当前选框的状态
+        qx[i].checked = this.checked;
+    }
+}
+
+//给所有的复选框注册点击事件
+for (var i = 0; i < qx.length; i++) {
+    qx[i].onclick = function () {
+        var flag = true;//默认被选中
+        // 判断是否所有的复选框都选中了
+        for (var j = 0; j < qx.length; j++) {
+            // 如果有任何一个没被选中的时候，默认值设置未选中
+            if(!qx[j].checked){
+                //没选中执行,将默认值设置成false
+                flag = false;
+                break;
+            }
+        }
+        //都选中时
+        all.checked=flag;
+    }
+}
+</script>
+</html>
