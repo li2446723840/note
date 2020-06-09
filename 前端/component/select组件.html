@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<style>
+body,dl,dd,ul,li,ol,h1,h2,h3,h4,h5,h6,input,p{margin:0;padding:0;}
+.clear:after{content:"";display:block;clear:both;overflow:hidden;visibility:hidden;height:0;}
+.clear{zoom:1;}
+a{text-decoration:none;}
+li{list-style:none}
+img{border:0;vertical-align:top;}
+input{outline:none}
+button{outline:none}
+
+</style>
+<body>
+    <div style="border-radius:5px;border:1px solid #ccc;width:80%;margin: auto;padding-bottom:2px;font-size:14px;color:#535353;">
+        <div style="position:relative" id="jl5">
+            <input type="text" id="jl1" style="width: 98%;border:none;height:18px;text-indent:10px;background-color: #FFFFFF;" disabled value="西瓜 | 水果">
+            <i style="position: absolute;right:2px;top:1px;">-</i>
+        </div>
+        <div style="position:relative;border-top:1px solid #ccc;padding-top:2px;display:none;" id="jl4">
+            <div style="width:96%;margin:auto;">
+                <input type="text" style="width:100%;border:1px solid #ccc;height:18px;text-indent:4px;" id="jl2">
+            </div>
+            <div style="width:96%;margin:auto;" id="jl3">
+
+            </div>
+        </div>
+    </div>
+    <div style="width: 80%;margin:auto;color:#535353;border:1px solid #ccc;padding-top:2px;padding-bottom:2px;font-size:14px;margin-top:4px;">
+        <div id="jl7"></div>
+    </div>
+</body>
+<script src="./jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    let arr = [
+        {
+            name: "黄瓜",
+            type: "蔬菜",
+        },{
+            name: "西瓜",
+            type: "水果",
+        }
+    ];
+    let brr = [
+        {
+            name: "黄瓜",
+            type: "蔬菜",
+        },{
+            name: "西瓜",
+            type: "水果",
+        }
+    ];
+    let crr = [];
+    let str1 = "";
+    // arr.forEach((ele)=>{
+    //     let a = JSON.stringify(ele);
+    //     str1 += `<li style="height:20px;line-height:20px;" a=${a}>${ele.name} | ${ele.type}</li>`;
+    // })
+    // $("#jl3").html(str1);
+
+    $("#jl5").click(()=>{
+        str1 = "";
+        $("#jl4").css("display","block");
+        brr.forEach((ele)=>{
+            let a = JSON.stringify(ele);
+            str1 += `<li style="height:20px;line-height:20px;" a=${a}>${ele.name} | ${ele.type}</li>`;
+        })
+        $("#jl3").html(str1);
+        recursion();
+    });
+
+    function recursion(){
+        let attrStr = $("#jl1").val();
+        $("#jl3 li").each((index,ele)=>{
+            if(ele.textContent==attrStr){
+                ele.style.backgroundColor = "#5897FB";
+            }else{
+                ele.style.backgroundColor = "#FFFFFF";
+            }
+            ele.onclick = function(){
+                $("#jl1").val(ele.textContent);
+                let b = ele.getAttribute("a");
+                brr.forEach((val)=>{
+                    crr.push(JSON.stringify(val));
+                })
+                if(!crr.includes(b)){
+                    brr.push(JSON.parse(b));
+                }
+                $("#jl4").css("display","none");
+                recursion();
+            }
+        })
+        charge();
+    }
+    recursion();
+    
+
+    $("#jl2").bind("input",()=>{
+        let drr = [];
+        let err = [];
+        let str2 = "";
+        let val = $("#jl2").val();
+        brr.forEach((val)=>{
+            drr.push(JSON.stringify(val));
+        })
+        drr.forEach((ele,index)=>{
+            if(ele.includes(val)){
+                err.push(index);
+            }
+        })
+        if(err.length>=1){
+            err.forEach((ele)=>{
+                let b = JSON.stringify(brr[ele]);
+                str2 += `<li style="height:20px;line-height:20px;" a=${b}>${brr[ele].name} | ${brr[ele].type}</li>`;
+            })
+            $("#jl3").html(str2);
+        }else{
+            str2 = "<div>未找到匹配，<span style=\"color:#0000FF\" id=\"jl6\">添加此项</span></div>";
+            $("#jl3").html(str2);
+            $("#jl6").click(()=>{
+                if(!val.includes("|")){
+                    alert("不符合规则，请使用|分隔");
+                }else{
+                    let frr = val.split("|");
+                    let obj = {
+                        name: frr[0],
+                        type: frr[1],
+                    }
+                    let objStr = JSON.stringify(obj);
+                    brr.forEach((val)=>{
+                        crr.push(JSON.stringify(val));
+                    })
+                    if(!crr.includes(objStr)){
+                        brr.push(obj);
+                    }
+                    $("#jl1").val(`${obj.name}|${obj.type}`);
+                    $("#jl4").css("display","none");
+                    $("#jl2").val("");
+                    recursion();
+                }
+            })
+        }
+        // recursion();
+    })
+
+    function charge(){
+        let str3 = "";
+        brr.forEach((val)=>{
+            str3 += `<li style="text-indent:5px;position:relative;line-height:20px;height:20px;margin-top:2px;">${val.name} | ${val.type}<input style="position:absolute;right:2px;border:1px solid #ccc;height:16px;line-height:16px;vertical-align:middle;text-align:14px;background-color:#FFF;" type="submit" value="删除"/></li>`
+        })
+        $("#jl7").html(str3);
+        $("#jl7 li").each((index,val)=>{
+            val.children[0].onclick = function(){
+                brr.splice(index,1);
+                charge();
+            }
+        })
+    }
+    
+    
+</script>
+</html>
