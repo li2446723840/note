@@ -1,0 +1,33 @@
+{
+	// Place your 全局 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {
+		"scope": "javascript,typescript,php,java,css,html",
+		"prefix": "ajax",
+		"body": [
+			"\\$.ajax({",
+			"	url: \"请求地址\",   // 必填，请求的地址",
+			"	type: \"请求方式\",   // 选填，请求方式，默认是 GET（忽略大小写）",
+			"	data: {},   // 选填，发送请求是携带的参数",
+			"	dataType: \"json\",   // 选填，期望返回值的数据类型，默认是 string",
+			"	async: true,   // 选填，是否异步，默认是 true",
+			"	success:function(res){",
+			"	    //将json对象转为字符串：",
+			"	    JSON.stringify(obj);",
+			"	    //将字符串转为json对象：",
+			"	    JSON.parse(string);",
+			"	},   // 选填，成功的回调函数",
+			"	error () {},   // 选填，失败的回调函数，参数有xhr，是ajax对象，status状态，err错误信息",
+			"	cache: true,   // 选填，是否缓存，默认是 true",
+			"	timeout: 1000,   // 选填，超时时间，单位毫秒",
+			"	context: div,   // 选填，回调函数中的 this 指向，默认是 ajax 对象",
+			"})",
+		],
+		"description": "Log output to console"
+	}
+}

@@ -1,0 +1,33 @@
+{
+	// Place your 全局 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"Print to console": {
+		"scope": "javascript,typescript,php,java,css,html",
+		"prefix": ["find","cha"],
+		"body": [
+			"//find" ,
+			"const arr = [1,2,3,4,4];",
+			"// 查找元素的值为4，只找第一个符合的元素，找不到返回undefined",
+			"// const status = arr.find(function (v,i,arr2) {",
+			"//     console.log(v,i,arr2);",
+			"//     return v === 4;",
+			"// })",
+			"",
+			"//findIndex",
+			"// 找第一个符合条件的元素，如果没有返回-1",
+			"// const status = arr.findIndex(function (v,i,arr2) {",
+			"//     console.log(v,i,arr2);",
+			"//     return v === 4;",
+			"// })",
+			"",
+			"const status = arr.findIndex(v=>v===4)",
+			"console.log(status)",
+		],
+		"description": "Log output to console"
+	}
+}
