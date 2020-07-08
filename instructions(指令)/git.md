@@ -114,3 +114,37 @@ git流程：
     1、git pull
     2、手动合并
     3、git push
+
+git 指令
+
+```
+touch .gitignore         //创建.gitignore文件
+git push -f              //强制上传
+git remote -v            //查看远程分支
+
+```
+
+从远程拉代码使用的命令（用于长期没有更新过代码的情况）
+
+upstream可以是任意字符(习惯写法)
+
+```
+git remote -v
+git remote add upstream path(路径) 
+git remote -v
+git fetch upstream//默认拉取master分支下的代码
+git fetch upstream dev//拉取dev分支下的代码
+```
+
+pull = fetch + merge
+
+git pull会自动合并冲突
+
+git branch         //查看本地分支
+
+git branch -r      //查看远程分支
+
+如果对项目做了贡献就应该使用git merge
+
+如果对项目没有贡献使用git rebase就可以了
+
