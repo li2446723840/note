@@ -1,0 +1,1 @@
+windows+R打开运行，输入msconfig回车打开Microsoft服务配置
