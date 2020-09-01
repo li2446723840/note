@@ -1,0 +1,14 @@
+{
+  "name": "sssss",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack src/one.js src/two.js --output my/abc.js --mode development"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.4.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
