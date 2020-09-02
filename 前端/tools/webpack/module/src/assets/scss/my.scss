@@ -1,0 +1,11 @@
+$w:500px;
+$h:600px;
+body{
+    background: green;
+    #root{
+        width: $w;
+        height: $h;
+        color: blue;
+        background: red;
+    }
+}
