@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Storage</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <button class="query">查询</button>
+    <button class="update">更新</button>
+    <button class="add">添加</button>
+    <button class="delete">删除</button>
+    <button class="deleteAll">删除全部</button>
+</body>
+<script type="text/javascript">
+    // document.querySelector(".query").onclick = function () {
+    //     var res = Storage.key(1);
+    //     console.log(res);
+    // }
+    // document.querySelector("update").onclick = function () {
+    //     var res = Storage.getItem("tex");
+    //     console.log(res);
+    // }
+    // document.querySelector("add").onclick = function () {
+    //     var res = Storage.setItem("tex");
+    //     console.log(res);
+    // }
+    // document.querySelector("delete").onclick = function () {
+    //     var res = Storage.removeItem("tex");
+    //     console.log(res);
+    // }
+    // document.querySelector("deleteAll").onclick = function () {
+    //     var res = Storage.clear("tex");
+    //     console.log(res);
+    // }
+    //跳出循环的两个关键字  continue  break
+    //continue关键字，可以跳出这次循环，直接进入下一次循环
+    for (var i = 0; i < 5; i++) {
+       if(i==3){
+          continue;
+       }
+       console.log(i);//0 1 2 4
+    }
+    //break关键字，可以终止循环，直接让整个循环结束运行
+    for (var i = 0; i < 5; i++) {
+       if(i==3){
+          break;
+       }
+       console.log(i);//0 1 2
+    }
+    
+</script>
+
+</html>
