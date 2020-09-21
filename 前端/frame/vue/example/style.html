@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="myApp">
+        <p style="background: red;color:green;">样式</p>
+        <p :style="'background: red;color:green;'">样式</p>
+        <p :style="ps">样式</p>
+        <p :style="one">样式</p>
+        <p :style="{background:'greenyellow',color:'orange'}">样式</p>
+        <p :style="{...bg,...co}">样式</p>
+        <p :style="[bg,co]">样式</p>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#myApp",
+        data: {
+            ps: "background:red;color:green",
+            one:{
+                background: "gold",
+                color:"blue"
+            },
+            bg:{
+                background:"yellow"
+            },
+            co:{
+                color:"blue"
+            }
+        },
+    })
+</script>
+
+</html>

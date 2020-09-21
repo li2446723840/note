@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <button class="add">添加</button>
+    <button class="query">查询</button>
+    <button class="update">更新</button>
+    <button class="delete">删除</button>
+    <button class="deleteAll">删除全部</button>
+</body>
+<script type="text/javascript">
+    document.querySelector(".add").onclick = function () {
+        localStorage.setItem("name", "张三");
+        localStorage.name2 = "李四";
+        localStorage["name3"] = "王五";
+    }
+    document.querySelector(".query").onclick = function () {
+        console.log(localStorage.key(0));
+        console.log(localStorage.key(1));
+    }
+    document.querySelector(".update").onclick = function () {
+        localStorage.setItem("name", "张三三");
+        localStorage.name2 = "李四四";
+        localStorage["name3"] = "王五五";
+    }
+    document.querySelector(".delete").onclick = function () {
+        localStorage.removeItem("name");
+    }
+    document.querySelector(".deleteAll").onclick = function () {
+        localStorage.clear();
+    }
+    
+
+
+</script>
+
+</html>

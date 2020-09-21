@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="myApp">
+        <div v-for="item in arr">
+            {{item}}
+        </div>
+        <div v-for="(item,index) in arr">
+            {{item}}：{{index}}
+        </div>
+        <div v-for="(value,key) in obj">
+            {{key}}：{{value}}
+        </div>
+        <div v-for="n in num">
+            {{n}}
+        </div>
+    </div>
+
+</body>
+<script src="../lib/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#myApp",
+        data: {
+            arr: [1, 2, 3, 4],
+            obj:{
+                name: "张三",
+                sex: "男"
+            },
+            num: 5
+        }
+    })
+</script>
+
+</html>

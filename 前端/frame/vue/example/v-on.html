@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="myApp">
+        <h3>{{num}}</h3>
+        <input type="button" :value="num" v-on:click="num++"/>
+        <input type="button" value="加二" v-on:click="addTwo"/>
+        <input type="button" value="加二" v-on:click="addTwo()"/>
+        <input type="button" value="简写" @click="addTwo()"/>
+        <input type="button" value="弹出" v-on:click="alert('无法弹出')"/>
+    </div>
+<!--  -->
+</body>
+<script src="../lib/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#myApp",
+        data: {
+            num:1
+        },
+        methods:{
+            addTwo(){
+                this.num+=2
+            }
+        }
+    })
+    
+</script>
+
+</html>

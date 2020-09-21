@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="myApp">
+        {{num}}
+    </div>
+    <!-- <div class="myApp">
+        {{num}}
+    </div>
+    <li>第一个li  {{num}}</li>
+    <li>第二个li  {{num}}</li> -->
+</body>
+<script src="../lib/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#myApp",//指定要挂载的元素，不允许挂载body。    {el:"body"}是错误的
+        // el: ".myApp",//指定要挂载的元素
+        // el: document.querySelector(".myApp"),//指定要挂载的元素
+        // el: "li",//只会挂载到第一个符合条件的元素上面
+        data: {//数据状态
+            num: 1,
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+
+<body>
+    <div id="myApp">
+        <input type="text" v-model.number="num"/>
+        <p>{{num2=num+1}}</p>
+        <p>{{num2}}</p>
+    </div>
+</body>
+<script src="./lib/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#myApp",
+        data: {
+            num:1,
+            num2:2
+        },
+        methods:{
+            
+        },
+        watch:{
+            //当数据num发生变化时，会执行该函数
+            num(newValue,oldValue){//newValue：修改后的值。oldValue：修改前的值
+              	console.log(newValue,oldValue);
+                this.num2 = newValue + 1;
+            }
+        }
+    })
+</script>
+
+</html>

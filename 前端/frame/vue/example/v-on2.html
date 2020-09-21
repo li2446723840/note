@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="myApp">
+        <div @click="outer" style="background: red;width: 300px;height: 300px;">
+            <div @click="middle" style="background: green;width: 150px;height: 150px;">
+                <button @click="inner($event,12)">按钮</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: "#myApp",
+        data: {},
+        methods:{
+            outer(e){
+                e.cancelBubble = true
+                console.log("outer");
+            },
+            middle(e){
+                e.cancelBubble = true
+                console.log("middle");
+            },
+            inner(e){
+                console.log(e);
+                e.cancelBubble = true
+                console.log("inner");
+            }
+        }
+    })
+</script>
+
+</html>
