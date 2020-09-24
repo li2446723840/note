@@ -225,7 +225,11 @@
             // 组件是不可以使用父级的data数据的。
             //每一个组件都是一个vue实例，故有data、methods、filters等，但是写法有些许区别
             one: {
-                // data:必须是一个函数，必须要有返回值，返回值的类别必须要是一个对象。返回的对象就是该组件的数据状态。
+                // data:必须是一个函数，必须要有返回值，返回值的类别必须要是一个对象。返回的对象就是该组件的数据状态。因为组件是复用的。使用函数return出来的对象引用地址都不一样
+                //function fn(a){
+        			//return {name:a}
+                //}
+    			//console.log(fn("z")==fn("z"));//false
                 data(){
                     return {
                         str:"我是在ONE->STR"

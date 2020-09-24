@@ -34,7 +34,7 @@ web storage分为会话存储（Session Storage）和本地存储（Local Storag
 
 ### Web SQL Database
 
-使用SQL越剧操作 IE FF 不支持
+使用SQL语句操作 IE FF 不支持
 
 ### Indexed Database
 
