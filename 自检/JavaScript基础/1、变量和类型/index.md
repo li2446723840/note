@@ -1,8 +1,10 @@
+### 变量和类型
+
 1、JavaScript规定了几种语言类型？
 
-答：1）基础类型：Number、String、boolean、undefined、null
+答：1）基础类型：Number、String、boolean、undefined、null、Symbol(es6新增)、BigInt
 
-​		2）复杂类型：Array、Object
+​		2）复杂类型：Object
 
 2、JavaScript对象的底层数据结构是什么？
 

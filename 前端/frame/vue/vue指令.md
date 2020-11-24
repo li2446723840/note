@@ -102,7 +102,7 @@ new Vue({
 </script>
 ```
 
-
+<font color=red>注意，`v-show` 不支持 `<template>` 元素，也不支持 `v-else`。</font>
 
 ###### v-for：
 
