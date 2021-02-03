@@ -1,0 +1,1 @@
+配置prettier：https://www.cnblogs.com/oneweek/p/11236515.html
